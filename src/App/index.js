@@ -11,6 +11,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
+import { ChangeAlert } from '../ChangeAlert';
 
 function App() {
   const {
@@ -26,11 +27,12 @@ function App() {
     deleteTodo,
     openModal,
     setOpenModal,
+    sincronizeTodos,
   } = useTodos();
 
   return (
     <React.Fragment>
-       <TodoHeader loading={loading}>
+      <TodoHeader loading={loading}>
         <TodoCounter
           totalTodos={totalTodos}
           completedTodos={completedTodos}
@@ -76,6 +78,10 @@ function App() {
 
       <CreateTodoButton
         setOpenModal={setOpenModal}
+      />
+
+      <ChangeAlert 
+        sincronize={sincronizeTodos}
       />
     </React.Fragment>
   );
